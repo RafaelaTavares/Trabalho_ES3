@@ -198,45 +198,45 @@ public class CadastrarVeiculo extends Frame {
 		JButton excluir = new JButton();
 		excluir.setText("Excluir");
 		excluir.setPreferredSize(new Dimension(70, 25));
-		excluir.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				excluirAgendarViagem();
-				
-			}
-
-			private void excluirAgendarViagem() {
-				//Extraindo informações dos campos
-					int codVeiculo = Integer.valueOf(textCod.getText()); //Transformando String em Int
-					String placa = JFormatTextFieldPlaca.getText().replaceAll("\\D","");
-					String marca = textMarca.getText();
-					String uf = textUF.getText();
-					int ano = Integer.valueOf(textAno.getText()); //Transformando String em Int
-					int quantPassageiro = Integer.valueOf(textPassageiro.getText()); //Transformando String em Int
-					int tipoComb = 0;
-					if(diselRadioButton.isSelected()){
-						tipoComb = 1;
-					}
-					if(etanolRadioButton.isSelected()){
-						tipoComb = 2;
-					}
-					if(gasolinaRadioButton.isSelected()){
-						tipoComb = 3;
-					}
-					
-				//Montando TO
-					CadastrarVeiculoTO veiculo = new CadastrarVeiculoTO(codVeiculo, placa, marca, uf, ano, tipoComb, quantPassageiro);
-				
-				//Inserindo usuario no banco de dados - Sem uso de controller.
-					CadastrarVeiculoDAO dao = new CadastrarVeiculoDAO();
-							try {
-								dao.deleteCadastrarVeiculo(codigo);
-							} catch (CadastrarVeiculoExeption e) {
-								e.printStackTrace();
-							}
-			}
-		});
+//		excluir.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				excluirAgendarViagem();
+//				
+//			}
+//
+//			private void excluirAgendarViagem() {
+//				//Extraindo informações dos campos
+//					int codVeiculo = Integer.valueOf(textCod.getText()); //Transformando String em Int
+//					String placa = JFormatTextFieldPlaca.getText().replaceAll("\\D","");
+//					String marca = textMarca.getText();
+//					String uf = textUF.getText();
+//					int ano = Integer.valueOf(textAno.getText()); //Transformando String em Int
+//					int quantPassageiro = Integer.valueOf(textPassageiro.getText()); //Transformando String em Int
+//					int tipoComb = 0;
+//					if(diselRadioButton.isSelected()){
+//						tipoComb = 1;
+//					}
+//					if(etanolRadioButton.isSelected()){
+//						tipoComb = 2;
+//					}
+//					if(gasolinaRadioButton.isSelected()){
+//						tipoComb = 3;
+//					}
+//					
+//				//Montando TO
+//					CadastrarVeiculoTO veiculo = new CadastrarVeiculoTO(codVeiculo, placa, marca, uf, ano, tipoComb, quantPassageiro);
+//				
+//				//Inserindo usuario no banco de dados - Sem uso de controller.
+//					CadastrarVeiculoDAO dao = new CadastrarVeiculoDAO();
+//							try {
+//								dao.deleteCadastrarVeiculo(codigo);
+//							} catch (CadastrarVeiculoExeption e) {
+//								e.printStackTrace();
+//							}
+//			}
+//		});
 		westPanel.add(excluir);
 		
 		JButton gravar = new JButton();

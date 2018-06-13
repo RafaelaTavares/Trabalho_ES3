@@ -1,0 +1,213 @@
+package br.edu.univas.sistemadeviagem.view.Frame;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.text.ParseException;
+
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
+
+import br.edu.univas.sistemadeviagem.view.Util.Frame;
+
+public class CadastrarCliente extends JFrame {
+
+	private static final long serialVersionUID = 4316509815382134911L;
+	
+	private JPanel contentPane = null;
+	//Declarações no crpo da classe
+		JTextField textCod = new JTextField();
+		JTextField textnome = new JTextField();
+		JTextField textRG = new JTextField();
+		JTextField textCPF = new JTextField();
+		JTextField textSexo = new JTextField();
+		JTextField textEmail = new JTextField();
+		JTextField textEndereco = new JTextField();	
+		JFormattedTextField JFormatTextFieldCpf =  new JFormattedTextField();
+		JFormattedTextField JFormatTextFieldRg = new JFormattedTextField();
+		JFormattedTextField JFormatTextFieldTelefone = new JFormattedTextField();
+	//Fim declarações
+		
+	public CadastrarCliente(){
+		this.setSize(470, 305);
+		this.setTitle("Cadastro de Cliente");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
+		addComponents();	
+	}
+	
+	private void addComponents(){
+		contentPane = new JPanel();
+		contentPane.setLayout(new BorderLayout());
+		this.setContentPane(contentPane);
+		
+		JPanel centerPanel = new JPanel();
+		centerPanel.setBackground(Color.LIGHT_GRAY);
+		centerPanel.setPreferredSize(new Dimension(25, 0));
+		contentPane.add(centerPanel, BorderLayout.CENTER);
+		
+		JLabel codCliente = new JLabel();
+		codCliente.setText("Código:");
+		centerPanel.add(codCliente);
+		
+		textCod.setColumns(4);
+		centerPanel.add(textCod);
+		
+		JButton f2 = new JButton();
+		f2.setText("F2");
+		f2.setPreferredSize(new Dimension(26, 20));
+		centerPanel.add(f2);
+		
+		JLabel vazio = new JLabel();
+		vazio.setText("                                                                         ");
+		centerPanel.add(vazio);
+		
+		JLabel nomeCliente = new JLabel();
+		nomeCliente.setBorder(new EmptyBorder(10, 0, 0, 0));
+		nomeCliente.setText("Nome:");
+		centerPanel.add(nomeCliente);
+				
+		textnome.setColumns(32);
+		centerPanel.add(textnome);
+		
+		JLabel cpfCliente = new JLabel();
+		cpfCliente.setBorder(new EmptyBorder(10, 0, 0, 0));
+		cpfCliente.setText("    CPF:");
+		centerPanel.add(cpfCliente);
+		
+		JLabel rgMotorista = new JLabel();
+		rgMotorista.setBorder(new EmptyBorder(10, 0, 0, 0));
+		rgMotorista.setText("                                              RG:");
+		centerPanel.add(rgMotorista);
+		
+		JFormatTextFieldCpf.setColumns(15);
+		try {
+			MaskFormatter mascaraCpf = new MaskFormatter("  ###.###.###-##");
+			mascaraCpf.setPlaceholderCharacter('_');
+			mascaraCpf.install(JFormatTextFieldCpf);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		centerPanel.add(JFormatTextFieldCpf);
+		
+		textRG.setColumns(15);
+		centerPanel.add(textRG);	
+		
+		JLabel sexoCliente = new JLabel();
+		sexoCliente.setBorder(new EmptyBorder(10, 0, 0, 0));
+		sexoCliente.setText(" Sexo:");
+		centerPanel.add(sexoCliente);
+		
+		JLabel telCliente = new JLabel();
+		telCliente.setBorder(new EmptyBorder(10, 0, 0, 0));
+		telCliente.setText("                           Tel.:");
+		centerPanel.add(telCliente);
+		
+		JLabel emailCliente = new JLabel();
+		emailCliente.setBorder(new EmptyBorder(10, 0, 0, 0));
+		emailCliente.setText("                            E-mail.:");
+		centerPanel.add(emailCliente);
+		
+		textSexo.setColumns(9);
+		centerPanel.add(textSexo);
+		
+		JFormatTextFieldTelefone.setColumns(9);
+		try {
+			MaskFormatter mascaraCpf = new MaskFormatter("(##) # ####-####");
+			mascaraCpf.setPlaceholderCharacter('_');
+			mascaraCpf.install(JFormatTextFieldTelefone);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		centerPanel.add(JFormatTextFieldTelefone);
+		
+		textEmail.setColumns(11);
+		centerPanel.add(textEmail);
+		
+		JLabel enderecoCliente = new JLabel();
+		enderecoCliente.setBorder(new EmptyBorder(10, 0, 0, 0));
+		enderecoCliente.setText("                                     Endereço:"
+				+ "                                    ");
+		centerPanel.add(enderecoCliente);
+		
+		textEndereco.setColumns(23);
+		centerPanel.add(textEndereco);
+		
+		
+		
+		
+		JPanel westPanel = new JPanel();
+		westPanel.setBackground(Color.DARK_GRAY);
+		westPanel.setPreferredSize(new Dimension(80,0));
+		westPanel.setBorder(new EmptyBorder(50, 0, 0, 0));
+		contentPane.add(westPanel, BorderLayout.WEST);
+		
+		JButton incluir = new JButton();
+		incluir.setText("Incluir");
+		incluir.setPreferredSize(new Dimension(70, 25));
+		westPanel.add(incluir);
+		
+		JButton alterar = new JButton();
+		alterar.setText("Alterar");
+		alterar.setPreferredSize(new Dimension(70, 25));
+		westPanel.add(alterar);
+		
+		JButton excluir = new JButton();
+		excluir.setText("Excluir");
+		excluir.setPreferredSize(new Dimension(70, 25));
+		westPanel.add(excluir);
+		
+		JButton gravar = new JButton();
+		gravar.setText("Gravar");
+		gravar.setPreferredSize(new Dimension(70, 25));
+//		gravar.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				gravarMotorista();				
+//			}
+//
+//			private void gravarMotorista() {
+//				//Extraindo informações dos campos
+//				int codMotorista = Integer.valueOf(textCod.getText()); //Transformando String em Int
+//				String nome = textNome.getText();
+//				String cpf = JFormatTextFieldCpf.getText().replaceAll("\\D","");
+//				String rg = textRG.getText();
+//				String cnh = textCNH.getText();
+//				String telefone = JFormatTextFieldTelefone.getText().replaceAll("\\D","");
+//				String endereco = textEndereco.getText();
+//								
+//				//Montando TO
+//				CadastrarMotoristaTO motorista = new CadastrarMotoristaTO(codMotorista, nome, cpf, rg, cnh, telefone, endereco);
+//				
+//				//Inserindo usuario no banco de dados - Sem uso de controller.
+//				CadastrarMotoristaDAO dao = new CadastrarMotoristaDAO();
+//				try {
+//					dao.insertNewCadastrarMotorista(motorista);
+//				} catch (CadastrarMotoristaException e) {
+//					e.printStackTrace();
+//				} //Enviando to para o banco de dados.
+//				
+//				JOptionPane.showMessageDialog(null, "Cadastro salvo com sucesso!");		
+//			}
+//		});
+		westPanel.add(gravar);
+		
+		JButton cancelar = new JButton();
+		cancelar.setText("Cancelar");
+		cancelar.setPreferredSize(new Dimension(70, 25));
+		westPanel.add(cancelar);
+	}
+	
+	public static void main(String[] args){
+		Frame.setlookAndFeel(Frame.ACRYL);
+		CadastrarCliente tela = new CadastrarCliente();
+		tela.setVisible(true);
+	}
+}

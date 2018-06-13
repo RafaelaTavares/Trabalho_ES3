@@ -146,6 +146,10 @@ public class AgendarViagem extends JFrame{
 		centerPanel.add(hrRetorno);
 	    
 	    DateFormat formatHoraRetorno = new SimpleDateFormat("HH:mm:ss");
+	    
+	    //TODO RETIRAR
+//	    formatHoraRetorno.getNumberFormat().
+	    
 	    horaRetornoTextField.setColumns(6);
 	    try {
 			MaskFormatter mascaraHora = new MaskFormatter("## : ## : ## ");
@@ -238,8 +242,7 @@ public class AgendarViagem extends JFrame{
 		dadosStatus.setBorder(new EmptyBorder(0, 0, 0, 185));
 		dadosStatus.setFont(new Font("Arial", Font.BOLD, 11));
 		dadosStatus.setForeground(Color.GRAY);
-		centerPanel
-		.add(dadosStatus);
+		centerPanel.add(dadosStatus);
 		
 		JLabel testLinha3 = new JLabel();
 		testLinha3.setText("______________________________________________________");
@@ -304,12 +307,13 @@ public class AgendarViagem extends JFrame{
 			}
 
 			private void gravarAgendarViagem() {
+				//TODO retirar
+				System.out.println( formatHoraRetorno   );
+				
 				//Extraindo informações dos campos
 				int codViagem = Integer.valueOf(textCod.getText()); //Transformando String em Int
 				String endereco = textEndereco.getText();
 				int quantPassageiro = Integer.valueOf(textQuantPass.getText()); //Transformando String em Int
-				JDateChooser dataSaida  = calSaida;
-				JDateChooser dataRetorno  = Timestamp(calRetorno.getDate().getTime());
 				Date horaSaida = Date.valueOf(horaSaidaTextField.getText().replaceAll("\\D",""));
 				Date horaRetorno  = Date.valueOf(horaRetornoTextField.getText().replaceAll("\\D",""));
 				float valorViagem = Float.valueOf(textValorViagem.getText()); //Transformando String em Float
@@ -327,7 +331,7 @@ public class AgendarViagem extends JFrame{
 				}
 				
 				//Montando TO
-				AgendarViagemTO viagem = new AgendarViagemTO(codViagem, endereco, quantPassageiro, dataSaida, dataRetorno, horaSaida, horaRetorno, statusViagem, valorViagem);
+				AgendarViagemTO viagem = new AgendarViagemTO(codViagem, endereco, quantPassageiro, calSaida, calRetorno, horaSaida, horaRetorno, statusViagem, valorViagem);
 				
 				//Inserindo usuario no banco de dados - Sem uso de controller.
 				AgendarViagemDAO dao = new AgendarViagemDAO();				

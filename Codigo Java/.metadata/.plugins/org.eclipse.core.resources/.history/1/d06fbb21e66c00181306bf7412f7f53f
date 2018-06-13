@@ -1,0 +1,19 @@
+package br.edu.univas.sistemadeviagem.model.TO;
+
+public class CadastrarClienteTO {
+	
+	int codCliente;
+	String nome;
+	String cpf;
+	String rg;
+	String sexo;
+	String telefone;
+	String email;
+	String endereco;
+
+	public CadastrarClienteTO() {
+		
+	}
+	
+	public CadastrarClienteTO(int cod)
+}

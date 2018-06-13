@@ -51,7 +51,7 @@ public class CadastrarMotorista extends JFrame {
 		this.setTitle("Cadastro de Motorista");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-	//	setResizable(false);
+		setResizable(false);
 		addComponents();
 	}
 	

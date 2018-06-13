@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
+import javax.swing.plaf.basic.BasicSplitPaneUI.KeyboardDownRightHandler;
+
 import com.toedter.calendar.JDateChooser;
 
 public class AgendarViagemTO {
@@ -18,13 +20,13 @@ public class AgendarViagemTO {
 	private int statusViagem;
 	private float valorViagem;
 	
-	public AgendarViagemTO(int codViagem, String endereco, int quantPassageiro, Timestamp dataSaida, Timestamp dataRetorno, 
+	public AgendarViagemTO(int codViagem, String endereco, int quantPassageiro, JDateChooser dataSaida, JDateChooser dataRetorno, 
 			Date horaSaida, Date horaRetorno, int statusViagem, float valorViagem){
 		this.codViagem = codViagem;
 		this.endereco = endereco;
 		this.quantPassageiro = quantPassageiro;
-		this.dataSaida = dataSaida;
-		this.dataRetorno = dataRetorno;
+		this.dataSaida = new Timestamp(dataSaida.getDate().getTime());
+		this.dataRetorno = new Timestamp( dataRetorno.getDate().getTime() );
 		this.horaSaida = horaSaida;
 		this.horaRetorno = horaRetorno;
 		this.statusViagem = statusViagem;

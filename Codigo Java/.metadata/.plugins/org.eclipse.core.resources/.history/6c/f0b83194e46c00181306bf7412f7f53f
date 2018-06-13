@@ -1,0 +1,9 @@
+package br.edu.univas.sistemadeviagem.model.Exception;
+
+public class CadastrarClienteException extends Exception {
+	
+	public CadastrarMotoristaException (String mensagem){
+		super(mensagem);
+	}
+
+}
